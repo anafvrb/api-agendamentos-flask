@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Agenda Médica</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <h1>Agenda Médica</h1>
+            <p>Consulte os agendamentos cadastrados.</p>
+        </header>
+
+        <section class="search-container">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Pesquisar por paciente ou CPF"
+            >
+
+        </section>
+
+        <section class="table-container">
+
+            <p id="message" class="message">
+                Carregando agendamentos...
+            </p>
+
+            <div id="appointments-table"></div>
+
+        </section>
+
+    </main>
+
+    <script
+        src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js">
+    </script>
+
+<script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+services:
+  agenda-medica:
+    build: .
+    container_name: agenda-medica
+
+    ports:
+      - "5000:5000"
+
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      FLASK_DEBUG: ${FLASK_DEBUG:-0}
+
+    volumes:
+      - ./instance:/app/instance
+
+    restart: unless-stopped

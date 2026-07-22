@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | Agenda Médica</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/login.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="page">
+
+        <section class="outer-box">
+
+            <div class="login-card">
+
+                <div class="login-icon">
+                    +
+                </div>
+
+                <h1>Login</h1>
+
+                <p class="subtitle">
+                    Acesse sua conta para continuar
+                </p>
+
+                <form action="/login" method="POST">
+
+                    {% if error %}
+                        <div class="error-message" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-container">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Digite seu e-mail"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Senha
+                        </label>
+
+                        <div class="input-container">
+
+                            <span class="input-icon">
+                                ●
+                            </span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                id="show-password"
+                                aria-label="Mostrar ou ocultar senha"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+                        Entrar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        const passwordInput =
+            document.getElementById("password");
+
+        const showPasswordButton =
+            document.getElementById("show-password");
+
+        showPasswordButton.addEventListener("click", function () {
+            const isHidden =
+                passwordInput.type === "password";
+
+            passwordInput.type =
+                isHidden ? "text" : "password";
+
+            showPasswordButton.textContent =
+                isHidden ? "○" : "◉";
+        });
+    </script>
+
+</body>
+</html>
